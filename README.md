@@ -1,5 +1,5 @@
-📁 My Project Portfolio
-Hey there! Welcome to my central project hub.
+# 📁 My Project Portfolio
+## Hey there! Welcome to my central project hub.
 
 What is this?
 This repo is a curated collection of my work. It's where I keep track of everything I'm building and everything I've built, from small scripts to full-scale applications.
