@@ -14,13 +14,13 @@ class StackFrontier():
         self.frontier.append(node)
 
     def contains_state(self, state):
-        return any(node.state == state) for node in self. frontier)
+        return any(node.state == state for node in self. frontier)
 
     def empty(self):
         return len(self.frontier)==0
 
     def remove(self):
-        if self.empty()
+        if self.empty():
             raise Exception("empty frontier")
         else:
             node = self.frontier[-1]
@@ -46,14 +46,14 @@ class Maze():
     #validate start and goal
         if contents.count("A") !=1:
             raise Exception("maze must have exactly one start point")
-        if contents.ccount("B") !=1:
+        if contents.count("B") !=1:
             raise Exception("maze must have exactly one goal")
-        if __name__ == "__main__":
+    
     
     #determine height and width of maze
         contents = contents.splitlines()
         self.height = len(contents)
-        self.width = max(len(line)) for line in contents)
+        self.width = max(len(line) for line in contents)
     #keep track of walls
         self.walls = []
         for i in range(self.height):
@@ -66,7 +66,7 @@ class Maze():
                     elif contents[i][j]=="B":
                         self.goal = (i,j)
                         row.append(False)
-                    elif content[i][j] == " ":
+                    elif contents[i][j] == " ":
                         row.append(False)
                     else:
                         row.append(True)
@@ -78,7 +78,7 @@ class Maze():
 
 
     def print(self):
-        solution = self.solution[1] if self.solutiono is not None else None
+        solution = self.solution[1] if self.solution is not None else None
         print()
         for i, row in enumerate(self.walls):
             for j, col in enumerate(row):
@@ -110,7 +110,7 @@ class Maze():
         result = []
         for action, (r, c) in candidates:
             try:
-                if not self.walls[r][c]
+                if not self.walls[r][c]:
                     result.append((action, (r,c)))
             except IndexError:
                 continue
@@ -167,7 +167,7 @@ class Maze():
     def output_image(self, filename, show_solution=True, show_explored=False):
         from PIL import Image, ImageDraw
         cell_size = 50
-        cell_border ==2
+        cell_border =2
 
         #create a blank canvas
         img = Image.new(
