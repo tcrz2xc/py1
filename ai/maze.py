@@ -133,36 +133,36 @@ class Maze():
         #keep looping until solution is found
         while True:
 
-        #if nothing left in frontier, then no path
-        if frontier.empty():
-            raise Exception("no solution")
+            #if nothing left in frontier, then no path
+            if frontier.empty():
+                raise Exception("no solution")
 
-        #choose a node from the frontier
-        node = frontier.remove()
-        self.num_explored +=1
+            #choose a node from the frontier
+            node = frontier.remove()
+            self.num_explored +=1
 
-        #If node is the goal, then we have a solution
-        if node.state == self.goal:
-            actions = []
-            cells = []
+            #If node is the goal, then we have a solution
+            if node.state == self.goal:
+                actions = []
+                cells = []
 
-            #Follow parent nodes to find solution
-            while node.parent is not None:
-                actions.append(node.action)
-                cells.append(node.state)
-                node = node.parent
-            actions.reverse()
-            cells.reverse()
-            self.solution =  (actions, cells)
-            return
-        #Mark node as explored
-        self.explored.add(node.state)
+                #Follow parent nodes to find solution
+                while node.parent is not None:
+                    actions.append(node.action)
+                    cells.append(node.state)
+                    node = node.parent
+                actions.reverse()
+                cells.reverse()
+                self.solution =  (actions, cells)
+                return
+            #Mark node as explored
+            self.explored.add(node.state)
 
-        #add neighbors to frontier
-        for action, state in self. neighbors(node.state):
-            if not frontier.contains_state(state) and state not in self.explored:
-                child = Node(state=state, parent=node, action=action)
-                frontier.add(child)
+            #add neighbors to frontier
+            for action, state in self. neighbors(node.state):
+                if not frontier.contains_state(state) and state not in self.explored:
+                    child = Node(state=state, parent=node, action=action)
+                    frontier.add(child)
 
     def output_image(self, filename, show_solution=True, show_explored=False):
         from PIL import Image, ImageDraw
