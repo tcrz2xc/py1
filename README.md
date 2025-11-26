@@ -5,6 +5,6 @@ What is this?
 This repo is a curated collection of my work. It's where I keep track of everything I'm building and everything I've built, from small scripts to full-scale applications.
 
 How often is it updated?
-I don't update this daily. Instead, I follow a monthly update cycle to bundle significant progress and new project additions, keeping everything here fresh and current.
+Since I am pretty active right now there have been a lot of recent updates. However I don't plan to update this daily. Instead, I will try to follow a monthly update cycle to bundle significant progress and new project additions, keeping everything here fresh and current.
 
 Feel free to explore!
