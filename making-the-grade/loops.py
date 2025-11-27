@@ -11,7 +11,7 @@ def round_scores(student_scores):
     for score in student_scores:
         round1.append(round(score, 0))
     return round1
-    pass
+    
 
 
 def count_failed_students(student_scores):
@@ -25,7 +25,7 @@ def count_failed_students(student_scores):
         if score <=40:
             count +=1
     return count
-    pass
+    
 
 
 def above_threshold(student_scores, threshold):
@@ -40,7 +40,7 @@ def above_threshold(student_scores, threshold):
         if score >= threshold:
             above.append(score)
     return above
-    pass
+    
 
 
 def letter_grades(highest):
@@ -63,7 +63,7 @@ def letter_grades(highest):
         x+=y
         r.append(x+1)
     return r
-    pass
+    
 
 
 def student_ranking(student_scores, student_names):
@@ -77,7 +77,7 @@ def student_ranking(student_scores, student_names):
     for index, score in enumerate(student_scores):
         ranking.append(f'{index+1}. {student_names[index]}: {score}')
     return ranking
-    pass
+    
 
 
 def perfect_score(student_info):
@@ -94,4 +94,4 @@ def perfect_score(student_info):
                 break
     
     return perfect
-    pass
+    

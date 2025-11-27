@@ -21,7 +21,7 @@ def value_of_card(card):
         return 10
     else:
         return 1
-    pass
+    
 
 
 def higher_card(card_one, card_two):
@@ -40,7 +40,7 @@ def higher_card(card_one, card_two):
         return card_two
     else:
         return card_one, card_two
-    pass
+    
 
 
 def value_of_ace(card_one, card_two):
@@ -58,7 +58,7 @@ def value_of_ace(card_one, card_two):
         return 11
     else:
         return 1
-    pass
+    
 
 
 def is_blackjack(card_one, card_two):
@@ -77,7 +77,7 @@ def is_blackjack(card_one, card_two):
         return True
     else:
         return False
-    pass
+    
 
 
 def can_split_pairs(card_one, card_two):
@@ -90,7 +90,7 @@ def can_split_pairs(card_one, card_two):
         return True
     else:
         return False
-    pass
+    
 
 
 def can_double_down(card_one, card_two):
@@ -104,4 +104,4 @@ def can_double_down(card_one, card_two):
         return True
     else:
         return False
-    pass
+    

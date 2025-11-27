@@ -17,7 +17,7 @@ def is_criticality_balanced(temperature, neutrons_emitted):
         return True
     else:
         return False
-    pass
+    
 
 
 def reactor_efficiency(voltage, current, theoretical_max_power):
@@ -49,7 +49,7 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
         return "red"
     else:
         return "black"
-    pass
+    
 
 
 def fail_safe(temperature, neutrons_produced_per_second, threshold):
@@ -71,4 +71,4 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
         return "NORMAL"
     else:
         return "DANGER"
-    pass
+    

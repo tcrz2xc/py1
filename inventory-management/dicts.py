@@ -12,7 +12,7 @@ def create_inventory(items):
         values.append((item, items.count(item)))
     inventory= dict(values)
     return inventory
-    pass
+    
 
 
 def add_items(inventory, items):
@@ -25,7 +25,7 @@ def add_items(inventory, items):
     inv = create_inventory(items)
     new_inv = {key: inventory.get(key,0)+ inv.get(key,0) for key in set(inventory) | set(inv)}
     return new_inv
-    pass
+    
 
 
 def decrement_items(inventory, items):
@@ -42,7 +42,7 @@ def decrement_items(inventory, items):
                 if inventory[key]==0:
                     break
     return inventory
-    pass
+    
 
 
 def remove_item(inventory, item):
@@ -55,7 +55,7 @@ def remove_item(inventory, item):
     hold=[]
     hold.append(item)
     return {k:v for k, v in inventory.items() if k not in hold}
-    pass
+    
 
 
 def list_inventory(inventory):
@@ -69,5 +69,5 @@ def list_inventory(inventory):
         if value>0:
             list.append((key, value))
     return list
-    pass
+    
 

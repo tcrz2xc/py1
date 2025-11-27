@@ -14,7 +14,7 @@ def get_rounds(number):
     for i in range(3):
         list.append(number+i)
     return list
-    pass
+    
 
 
 def concatenate_rounds(rounds_1, rounds_2):
@@ -26,7 +26,7 @@ def concatenate_rounds(rounds_1, rounds_2):
     """
     return rounds_1+rounds_2
 
-    pass
+
 
 
 def list_contains_round(rounds, number):
@@ -40,7 +40,7 @@ def list_contains_round(rounds, number):
         return True
     else:
         return False
-    pass
+    
 
 
 def card_average(hand):
@@ -55,7 +55,7 @@ def card_average(hand):
     average = sum / len(hand)
     return average
 
-    pass
+    
 
 
 def approx_average_is_average(hand):
@@ -70,7 +70,7 @@ def approx_average_is_average(hand):
         return True
     else:
         return False
-    pass
+
 
 
 def average_even_is_average_odd(hand):
@@ -96,7 +96,7 @@ def average_even_is_average_odd(hand):
         return True
     else:
         return False
-    pass
+    
 
 
 def maybe_double_last(hand):
@@ -110,4 +110,4 @@ def maybe_double_last(hand):
         return hand
     else:
         return hand
-    pass
+    

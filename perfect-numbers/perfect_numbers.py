@@ -17,4 +17,4 @@ def classify(number):
             return "deficient"
     else:
         raise ValueError("Classification is only possible for positive integers.")
-    pass
+    
