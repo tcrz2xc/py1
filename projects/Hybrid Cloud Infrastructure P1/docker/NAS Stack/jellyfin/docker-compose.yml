@@ -1,0 +1,16 @@
+#example yml for jellyfin
+services:
+  jellyfin:
+    image: ugreen/jellyfin:v1
+    container_name: jellyfin
+    restart: always
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - /volume1/docker/jellyfin/configurations:/data
+    ports:
+      - "8899:8096"
+    environment:
+      - TZ=America/Chicago

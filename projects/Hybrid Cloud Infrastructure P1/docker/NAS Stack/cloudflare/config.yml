@@ -1,0 +1,17 @@
+tunnel: jellyfin-tunnel
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  - hostname: jellyfin.<yourdomain>.com
+    service: http://<yourip>:8899         #I exposed port8899 on jellyfin so I have to match that
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: jellyfin.<yourdomain>.com
+
+  - service: http_status:404
+
+warp-routing:
+  enabled: false
+
+loglevel: info
+metrics: 0.0.0.0:8080

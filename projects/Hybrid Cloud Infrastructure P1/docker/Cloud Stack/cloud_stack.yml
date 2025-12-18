@@ -1,0 +1,53 @@
+version: "3.9"
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - npm-data:/data
+      - npm-letsencrypt:/etc/letsencrypt
+
+  db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: yourROOTpassword
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: yourDBpassword
+    volumes:
+      - db-data:/var/lib/mysql
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+
+  nextcloud:
+    image: nextcloud:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: nextcloud
+      MYSQL_PASSWORD: yourDBpassword
+      REDIS_HOST: redis
+    volumes:
+      - nextcloud-data:/var/www/html
+
+  onlyoffice:
+    image: onlyoffice/documentserver:latest
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+volumes:
+  db-data:
+  nextcloud-data:
+  npm-data:
+  npm-letsencrypt:
