@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+my-func() {
+  echo 'this goes to stdout' >&1
+  echo 'this goes to stderr' >&2
+  return 0
+}
+var=$(my-func)
+
+#var=$(my-func 2>&1) ->to redirect stderr to stdout 
+#var=$(my-func >/dev/null 2>&1 ) ->this would get rid of the output since you are redirecting stderr to stdout and redirecting to /dev/null. so no print out.
+#var=$(my-func 2>&1 >/dev/null) will get rid of stdout and just post stderr
+code=$?
+echo "output=$var, code=$code"
+

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#save the cursor position
+printf '\e7'
+
+#jump somewhere
+printf '\e[20;20H'
+#print hello world
+printf 'Hello World'
+#restire the cursor
+printf '\e8'
+

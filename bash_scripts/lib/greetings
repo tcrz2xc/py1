@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+greet() {
+  #local name=$1 -> this was as part of an example to show curls vs parens
+  echo "hello $1"
+}
+
+goodbye() {
+  # local name=$1
+  echo "goodbye $1"
+}
+
+
+if ! (return 2>/dev/null); then
+  #we  are being called directly
+  greet dave
+  goodbye john
+fi

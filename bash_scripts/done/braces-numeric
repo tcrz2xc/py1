@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+#max=4
+#foo (i=0; i<=max; i+=2); do -> you need to do this when setting a variable, otherwise just use the {} notation 
+for i in foo {1..10} bar {1..4} baz; do 
+  echo "$i"
+done
+
+

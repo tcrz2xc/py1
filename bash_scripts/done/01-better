@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+declare -A shells
+while IFS=: read -r name pass uid gid gecos home shell; do 
+  #skip comments
+  #echo "found user $name"
+  #continue
+
+  if [[ $name == '#'* ]]; then
+    continue
+  fi  
+
+  shells[$name]=$shell
+done < /etc/passwd
+
+declare -p shells
+echo "tom1 has the shell: ${shells[tom1]}"
