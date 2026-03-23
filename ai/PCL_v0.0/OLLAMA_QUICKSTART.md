@@ -248,7 +248,7 @@ ollama push your-username/pcl-minigpt
 
 ## 📞 Support
 
-If you hit issues:
+If you hit issues: (still in development but for testing purposes)
 1. Check the detailed guide: `ollama_export_guide.md`
 2. Verify dependencies are installed
 3. Try --quick mode first
@@ -256,13 +256,4 @@ If you hit issues:
 
 ---
 
-## ✅ Success Checklist
 
-- [ ] Dependencies installed
-- [ ] Model trained successfully
-- [ ] Exported to HuggingFace
-- [ ] Converted to GGUF
-- [ ] Imported to Ollama
-- [ ] Model responds to prompts
-
-Once all checked, you have a working PCL model in Ollama! 🎉
