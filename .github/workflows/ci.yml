@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python-lint:
+    name: Python — flake8
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install flake8
+        run: pip install flake8
+
+      - name: Lint /ai and /python
+        run: |
+          flake8 ai/ python/ \
+            --max-line-length=100 \
+            --exclude=__pycache__,.venv,*_test.py \
+            --statistics \
+            --count
+
+  python-tests:
+    name: Python — pytest (Exercism track)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: pip install pytest termcolor
+
+      - name: Run Exercism test suites
+        run: |
+          pytest python/ \
+            --ignore=python/darts/__pycache__ \
+            -v --tb=short
+
+      - name: Run AI module tests
+        run: |
+          python -c "from ai.logic import Symbol, And, Or, Not, model_check; print('logic.py OK')"
+
+  shellcheck:
+    name: Bash — ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Lint bash_scripts/done/
+        run: |
+          find bash_scripts/done/ -type f ! -name "*.csv" ! -name "*.txt" \
+            | xargs shellcheck --severity=warning --shell=bash
+
+      - name: Lint bash/ (Exercism track)
+        run: |
+          find bash/ -name "*.sh" \
+            | xargs shellcheck --severity=warning --shell=bash
